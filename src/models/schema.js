@@ -17,6 +17,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "bookID": {
+                    "name": "bookID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -40,6 +47,15 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byBook",
+                        "fields": [
+                            "bookID"
+                        ]
+                    }
                 },
                 {
                     "type": "auth",
@@ -96,6 +112,20 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "books": {
+                    "name": "books",
+                    "isArray": true,
+                    "type": {
+                        "model": "Book"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "userID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -170,13 +200,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "owner": {
-                    "name": "owner",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "recycle": {
                     "name": "recycle",
                     "isArray": false,
@@ -184,12 +207,26 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "image": {
-                    "name": "image",
+                "userID": {
+                    "name": "userID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
+                },
+                "images": {
+                    "name": "images",
+                    "isArray": true,
+                    "type": {
+                        "model": "Image"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "bookID"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -216,6 +253,15 @@ export const schema = {
                     "properties": {}
                 },
                 {
+                    "type": "key",
+                    "properties": {
+                        "name": "byUser",
+                        "fields": [
+                            "userID"
+                        ]
+                    }
+                },
+                {
                     "type": "auth",
                     "properties": {
                         "rules": [
@@ -236,5 +282,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "b11ff21c85601e20f2a6b03e36d5cbce"
+    "version": "6ff228f87e4d4f5c17d17b5478332d5b"
 };

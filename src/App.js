@@ -1,4 +1,4 @@
-import { Authenticator, View } from "@aws-amplify/ui-react";
+import { Authenticator, Button, View } from "@aws-amplify/ui-react";
 import BookList from "./BookList";
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <View>
+          <Button onClick={signOut}>Sign Out</Button>
           <BookList />
         </View>
       )}

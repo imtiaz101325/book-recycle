@@ -19,6 +19,7 @@ type BookMetaData = {
 export declare class Image {
   readonly id: string;
   readonly name?: string | null;
+  readonly bookID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Image, ImageMetaData>);
@@ -31,6 +32,7 @@ export declare class User {
   readonly lastName?: string | null;
   readonly username?: string | null;
   readonly phone?: string | null;
+  readonly books?: (Book | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);
@@ -42,9 +44,9 @@ export declare class Book {
   readonly name?: string | null;
   readonly author?: string | null;
   readonly donation?: boolean | null;
-  readonly owner?: string | null;
   readonly recycle?: boolean | null;
-  readonly image?: string | null;
+  readonly userID: string;
+  readonly images?: (Image | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Book, BookMetaData>);
