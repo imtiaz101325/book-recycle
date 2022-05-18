@@ -14,9 +14,6 @@
     "categories": {
       "auth": {
         "bookrecycle": {}
-      },
-      "function": {
-        "bookrecyclePostConfirmation": {}
       }
     }
   }
