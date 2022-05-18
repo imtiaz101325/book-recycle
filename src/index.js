@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
+import { AmplifyProvider, Authenticator, View } from "@aws-amplify/ui-react";
 
 import App from "./App";
 
@@ -17,7 +17,9 @@ root.render(
   <React.StrictMode>
     <AmplifyProvider>
       <Authenticator.Provider>
-        <App />
+        <View>
+          <App />
+        </View>
       </Authenticator.Provider>
     </AmplifyProvider>
   </React.StrictMode>
