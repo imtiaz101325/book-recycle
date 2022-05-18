@@ -10,6 +10,11 @@
       "StackName": "amplify-bookrecycle-staging-134529",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:338251678403:stack/amplify-bookrecycle-staging-134529/c7c223a0-d6b0-11ec-bbdd-029df836cd18",
       "AmplifyAppId": "d1622ldeo5157r"
+    },
+    "categories": {
+      "auth": {
+        "bookrecycle": {}
+      }
     }
   }
 }
