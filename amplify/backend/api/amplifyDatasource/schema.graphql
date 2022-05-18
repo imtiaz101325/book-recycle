@@ -1,0 +1,22 @@
+type Image @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  username: String
+  phone: String
+}
+
+type Book @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  author: String
+  donation: Boolean
+  owner: ID
+  recycle: Boolean
+  image: ID
+}
