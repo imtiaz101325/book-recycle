@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bookrecycle-staging-134529-authRole",
+      "UnauthRoleArn": "arn:aws:iam::338251678403:role/amplify-bookrecycle-staging-134529-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::338251678403:role/amplify-bookrecycle-staging-134529-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-bookrecycle-staging-134529-deployment",
+      "UnauthRoleName": "amplify-bookrecycle-staging-134529-unauthRole",
+      "StackName": "amplify-bookrecycle-staging-134529",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:338251678403:stack/amplify-bookrecycle-staging-134529/c7c223a0-d6b0-11ec-bbdd-029df836cd18",
+      "AmplifyAppId": "d1622ldeo5157r"
+    }
+  }
+}
