@@ -2,7 +2,7 @@ import { DataStore } from "@aws-amplify/datastore";
 import { useEffect, useState } from "react";
 import { Button, View } from "@aws-amplify/ui-react";
 
-import { Book } from "./models";
+import { Book, User } from "./models";
 
 export default function BookList() {
   const [books, setBooks] = useState([]);
@@ -11,10 +11,11 @@ export default function BookList() {
     async function data() {
       const response = await DataStore.query(Book);
       setBooks(response);
+      console.log(await DataStore.query(User))
     }
 
     data();
-  });
+  }, []);
 
   return (
     <View>

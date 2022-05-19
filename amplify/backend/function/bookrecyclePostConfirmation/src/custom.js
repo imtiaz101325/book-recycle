@@ -9,7 +9,7 @@ const gql = require("graphql-tag");
 const graphql = require("graphql");
 const { print } = graphql;
 
-export const createUser = /* GraphQL */ gql`
+const createUser = /* GraphQL */ gql`
   mutation CreateUser(
     $input: CreateUserInput!
     $condition: ModelUserConditionInput
@@ -46,11 +46,11 @@ exports.handler = async (event) => {
         variables: {
           input: {
             id: event.request.userAttributes.sub,
-            firstName: event.request.userAttributes.firstName,
-            lastName: event.request.userAttributes.lastName,
+            firstName: event.request.userAttributes.family_name,
+            lastName: event.request.userAttributes.given_name,
             email: event.request.userAttributes.email,
-            phone: event.request.userAttributes.phone,
-            username: event.request.userAttributes.username,
+            phone: event.request.userAttributes.phone_number,
+            username: event.request.userAttributes.preferred_username,
           },
         },
       },
