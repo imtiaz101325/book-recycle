@@ -77,12 +77,13 @@ export default function LayoutComp() {
 
   function logOut() {
     signOut();
-    navigate("/home");
+    navigate("/");
   }
 
   function handleMenuClick(e) {
     if (e.key === "logout") {
       logOut();
+      return
     }
 
     navigate(e.key);

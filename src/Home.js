@@ -1,11 +1,16 @@
-import { Heading } from "@aws-amplify/ui-react";
+import { View } from "@aws-amplify/ui-react";
+import styled from "styled-components";
+
+import BookList from "./BookList";
+
+const Container = styled(View)`
+
+`;
 
 export default function Home() {
   return (
-    <>
-      <Heading level={3}>
-        Please use the buttons at the top to test out protected routes!
-      </Heading>
-    </>
+    <Container>
+      <BookList />
+    </Container>
   );
 }
