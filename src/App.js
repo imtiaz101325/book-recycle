@@ -1,4 +1,4 @@
-import { Authenticator, Button, View } from "@aws-amplify/ui-react";
+import { Authenticator } from "@aws-amplify/ui-react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Profile from './Profile';

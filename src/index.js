@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { AmplifyProvider, Authenticator, View } from "@aws-amplify/ui-react";
+import { AmplifyProvider, Authenticator } from "@aws-amplify/ui-react";
 
 import App from "./App";
 
@@ -9,6 +9,7 @@ import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 
 import "@aws-amplify/ui-react/styles.css";
+import "./index.css";
 
 Amplify.configure(awsconfig);
 
@@ -17,9 +18,7 @@ root.render(
   <React.StrictMode>
     <AmplifyProvider>
       <Authenticator.Provider>
-        <View>
-          <App />
-        </View>
+        <App />
       </Authenticator.Provider>
     </AmplifyProvider>
   </React.StrictMode>
