@@ -6,6 +6,7 @@ import RequireAuth from './RequireAuth';
 import Login from './Login';
 import Home from './Home';
 import Layout from './Layout';
+import AddBook from "./AddBook";
 
 export default function App() {
   return (
@@ -19,6 +20,14 @@ export default function App() {
             element={
               <RequireAuth>
                 <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/add-book"
+            element={
+              <RequireAuth>
+                <AddBook />
               </RequireAuth>
             }
           />

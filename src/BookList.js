@@ -31,18 +31,12 @@ export default function BookList() {
 
   return (
     <Container>
+      {route === "authenticated" && (
+        <BookCard add/>
+      )}
       {books.map((book) => (
         <BookCard />
       ))}
-      {route === "authenticated" && (
-        <Button
-          onClick={() => {
-            DataStore.save(new Book({ name: "New Book" }));
-          }}
-        >
-          Add Book
-        </Button>
-      )}
     </Container>
   );
 }

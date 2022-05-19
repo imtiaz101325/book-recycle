@@ -3,14 +3,43 @@ import {
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
+  FileAddOutlined
 } from "@ant-design/icons";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 
-export default function BookCard({}) {
+const Book = styled(Card)`
+  width: 20vw;
+`;
+
+export default function BookCard({ add }) {
+  if (add) {
+    return (
+      <Link to="/add-book">
+        <Book
+        cover={
+          <img
+            alt="add book"
+            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
+          />
+        }
+        actions={[
+          <FileAddOutlined key="add" />
+        ]}
+      >
+        <Meta
+          title="Add New"
+          description="Add a new book to sell or donate"
+        />
+      </Book>
+      </Link>
+    );
+  }
+
   return (
-    <Card
-      style={{ width: 300 }}
+    <Book
       cover={
         <img
           alt="example"
@@ -28,6 +57,6 @@ export default function BookCard({}) {
         title="Card title"
         description="This is the description"
       />
-    </Card>
+    </Book>
   );
 }
