@@ -1,64 +1,73 @@
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
-const https = require("https");
-const AWS = require("aws-sdk");
-const urlParse = require("url").URL;
 const appsyncUrl = process.env.API_AMPLIFYDATASOURCE_GRAPHQLAPIENDPOINTOUTPUT;
-const region = process.env.REGION;
-const endpoint = new urlParse(appsyncUrl).hostname.toString();
-const graphqlQuery = require("./query.js").mutation;
 const apiKey = process.env.API_AMPLIFYDATASOURCE_GRAPHQLAPIKEYOUTPUT;
 
-exports.handler = async (event) => {
-  const req = new AWS.HttpRequest(appsyncUrl, region);
+const axios = require("axios");
+const gql = require("graphql-tag");
+const graphql = require("graphql");
+const { print } = graphql;
 
-  const item = {
-    input: {
-      id: event.request.userAttributes.sub ,
-      firstName: event.request.userAttributes.firstName ,
-      lastName: event.request.userAttributes.lastName ,
-      email: event.request.userAttributes.email ,
-      phone: event.request.userAttributes.phone,
-      username: event.request.userAttributes.username,
-    },
-  };
-
-  req.method = "POST";
-  req.path = "/graphql";
-  req.headers.host = endpoint;
-  req.headers["Content-Type"] = "application/json";
-  req.body = JSON.stringify({
-    query: graphqlQuery,
-    operationName: "createUser",
-    variables: item,
-  });
-
-  if (apiKey) {
-    req.headers["x-api-key"] = apiKey;
-  } else {
-    const signer = new AWS.Signers.V4(req, "appsync", true);
-    signer.addAuthorization(AWS.config.credentials, AWS.util.date.getDate());
+export const createUser = /* GraphQL */ gql`
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      username
+      phone
+      books {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
   }
+`;
 
-  await new Promise((resolve, reject) => {
-    const httpRequest = https.request({ ...req, host: endpoint }, (result) => {
-      let data = "";
-
-      result.on("data", (chunk) => {
-        data += chunk;
-      });
-
-      result.on("end", () => {
-        resolve(JSON.parse(data.toString()));
-      });
+exports.handler = async (event) => {
+  try {
+    await axios({
+      url: appsyncUrl,
+      method: "post",
+      headers: {
+        "x-api-key": apiKey,
+      },
+      data: {
+        query: print(createUser),
+        variables: {
+          input: {
+            id: event.request.userAttributes.sub,
+            firstName: event.request.userAttributes.firstName,
+            lastName: event.request.userAttributes.lastName,
+            email: event.request.userAttributes.email,
+            phone: event.request.userAttributes.phone,
+            username: event.request.userAttributes.username,
+          },
+        },
+      },
     });
 
-    httpRequest.write(req.body);
-    httpRequest.end();
-  });
+    const body = {
+      message: "successfully created user!",
+    };
 
-  return {
-    statusCode: 200,
-  };
+    return {
+      statusCode: 200,
+      body: JSON.stringify(body),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    };
+  } catch (err) {
+    console.log("error creating todo: ", err);
+  }
 };

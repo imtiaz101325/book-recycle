@@ -9,14 +9,18 @@
       "UnauthRoleName": "amplify-bookrecycle-staging-134529-unauthRole",
       "StackName": "amplify-bookrecycle-staging-134529",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:338251678403:stack/amplify-bookrecycle-staging-134529/c7c223a0-d6b0-11ec-bbdd-029df836cd18",
-      "AmplifyAppId": "d1622ldeo5157r"
+      "AmplifyAppId": "d1622ldeo5157r",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-bookrecycle-staging-134529-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "bookrecycle": {}
       },
       "function": {
-        "bookrecyclePostConfirmation": {}
+        "bookrecyclePostConfirmation": {
+          "deploymentBucketName": "amplify-bookrecycle-staging-134529-deployment",
+          "s3Key": "amplify-builds/bookrecyclePostConfirmation-364e4270557148397467-build.zip"
+        }
       }
     }
   }

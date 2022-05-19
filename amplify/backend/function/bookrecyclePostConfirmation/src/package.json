@@ -5,7 +5,9 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "latest"
+    "axios": "latest",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92"
