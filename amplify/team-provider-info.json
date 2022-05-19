@@ -19,7 +19,7 @@
       "function": {
         "bookrecyclePostConfirmation": {
           "deploymentBucketName": "amplify-bookrecycle-staging-134529-deployment",
-          "s3Key": "amplify-builds/bookrecyclePostConfirmation-6459427245587332484d-build.zip"
+          "s3Key": "amplify-builds/bookrecyclePostConfirmation-6a76564e37672b2b586f-build.zip"
         }
       }
     }
