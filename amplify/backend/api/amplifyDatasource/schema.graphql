@@ -11,6 +11,7 @@ type User @model @auth(rules: [{allow: public}]) {
   username: String
   phone: String
   books: [Book] @hasMany(indexName: "byUser", fields: ["id"])
+  email: String
 }
 
 type Book @model @auth(rules: [{allow: public}]) {
