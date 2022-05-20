@@ -16,23 +16,29 @@ export default function Profile() {
 
   useEffect(() => {
     async function data() {
-      const response = await DataStore.query(User, user.id);
-      
-      if (response.length) {
-        setUser(response[0]);
-      }
+      const response = await DataStore.query(User, user.attributes.sub);
+
+      setUser(response);
     }
 
     data();
-  }, [user.id]);
-  
+  }, [user.attributes.sub]);
+
   return (
     <Container>
       <Descriptions title="User Info">
-        <Descriptions.Item label="Username">{userData.username}</Descriptions.Item>
-        <Descriptions.Item label="First Name">{userData.firstName}</Descriptions.Item>
-        <Descriptions.Item label="Last Name">{userData.lastName}</Descriptions.Item>
-        <Descriptions.Item label="Telephone">{userData.phone}</Descriptions.Item>
+        <Descriptions.Item label="Username">
+          {userData.username}
+        </Descriptions.Item>
+        <Descriptions.Item label="First Name">
+          {userData.firstName}
+        </Descriptions.Item>
+        <Descriptions.Item label="Last Name">
+          {userData.lastName}
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">
+          {userData.phone}
+        </Descriptions.Item>
         <Descriptions.Item label="Email">{userData.email}</Descriptions.Item>
       </Descriptions>
     </Container>
