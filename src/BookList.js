@@ -31,11 +31,9 @@ export default function BookList() {
 
   return (
     <Container>
-      {route === "authenticated" && (
-        <BookCard add/>
-      )}
-      {books.map((book) => (
-        <BookCard />
+      {route === "authenticated" && <BookCard add />}
+      {books.map(({ id, name, author }) => (
+        <BookCard key={id} name={name} author={author} />
       ))}
     </Container>
   );

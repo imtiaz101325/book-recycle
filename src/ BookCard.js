@@ -14,7 +14,7 @@ const Book = styled(Card)`
   width: 20vw;
 `;
 
-export default function BookCard({ add }) {
+export default function BookCard({ add, name, author }) {
   if (add) {
     return (
       <Link to="/add-book">
@@ -42,8 +42,8 @@ export default function BookCard({ add }) {
     <Book
       cover={
         <img
-          alt="example"
-          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          alt="Random book"
+          src="https://picsum.photos/200/300"
         />
       }
       actions={[
@@ -53,9 +53,8 @@ export default function BookCard({ add }) {
       ]}
     >
       <Meta
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-        title="Card title"
-        description="This is the description"
+        title={name}
+        description={author}
       />
     </Book>
   );
