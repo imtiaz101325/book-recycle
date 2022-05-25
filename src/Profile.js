@@ -1,13 +1,8 @@
-import { useAuthenticator, View } from "@aws-amplify/ui-react";
-import styled from "styled-components";
-import { Descriptions } from "antd";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 import { useEffect, useState } from "react";
 import { DataStore } from "aws-amplify";
 import { User } from "./models";
-
-const Container = styled(View)`
-  padding: 20vh;
-`;
+import { Container, Paper } from "@mui/material";
 
 export default function Profile() {
   const [userData, setUser] = useState({});
@@ -26,7 +21,10 @@ export default function Profile() {
 
   return (
     <Container>
-      <Descriptions title="User Info">
+      <Paper>
+
+      </Paper>
+      {/* <Descriptions title="User Info">
         <Descriptions.Item label="Username">
           {userData.username}
         </Descriptions.Item>
@@ -40,7 +38,7 @@ export default function Profile() {
           {userData.phone}
         </Descriptions.Item>
         <Descriptions.Item label="Email">{userData.email}</Descriptions.Item>
-      </Descriptions>
+      </Descriptions> */}
     </Container>
   );
 }

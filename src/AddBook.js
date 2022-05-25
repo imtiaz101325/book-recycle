@@ -1,13 +1,8 @@
-import { useAuthenticator, View } from "@aws-amplify/ui-react";
-import styled from "styled-components";
-import { Form, Input, Switch, Button } from "antd";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 import { DataStore } from "aws-amplify";
 import { Book } from "./models";
 import { useNavigate } from "react-router-dom"
-
-const Container = styled(View)`
-  padding: 10em;
-`;
+import { Container } from "@mui/material";
 
 export default function AddBook() {
   const { user } = useAuthenticator((context) => [context.user]);
@@ -32,7 +27,7 @@ export default function AddBook() {
 
   return (
     <Container>
-      <Form layout="vertical" onFinish={handleChange} size="large">
+      {/* <Form layout="vertical" onFinish={handleChange} size="large">
         <Form.Item label="Name" name="name">
           <Input />
         </Form.Item>
@@ -47,7 +42,7 @@ export default function AddBook() {
             Submit
           </Button>
         </Form.Item>
-      </Form>
+      </Form> */}
     </Container>
   );
 }

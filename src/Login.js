@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Authenticator, useAuthenticator, View } from "@aws-amplify/ui-react";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
 import { useNavigate, useLocation } from "react-router";
-import styled from "styled-components";
+import { Container, styled } from "@mui/material";
 
-const Container = styled(View)`
+const LoginContainer = styled(Container)`
   margin-top: 25vh;
 `;
 
@@ -20,8 +20,8 @@ export default function Login() {
   }, [route, navigate, from]);
 
   return (
-    <Container>
+    <LoginContainer>
       <Authenticator />
-    </Container>
+    </LoginContainer>
   );
 }

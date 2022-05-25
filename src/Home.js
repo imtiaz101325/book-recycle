@@ -1,16 +1,32 @@
-import { View } from "@aws-amplify/ui-react";
-import styled from "styled-components";
+import { DataStore } from "@aws-amplify/datastore";
+import { useEffect, useState } from "react";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { Container } from "@mui/material";
 
-import BookList from "./BookList";
+import BookCard from "./ BookCard";
 
-const Container = styled(View)`
-
-`;
+import { Book } from "./models";
 
 export default function Home() {
+  const [books, setBooks] = useState([]);
+
+  const { route } = useAuthenticator((context) => [context.route]);
+
+  useEffect(() => {
+    async function data() {
+      const response = await DataStore.query(Book);
+      setBooks(response);
+    }
+
+    data();
+  }, []);
+
   return (
     <Container>
-      <BookList />
+      {route === "authenticated" && <BookCard add />}
+      {books.map(({ id, name, author }) => (
+        <BookCard key={id} name={name} author={author} />
+      ))}
     </Container>
   );
 }
