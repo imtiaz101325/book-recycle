@@ -53,6 +53,7 @@ export default function AddBook() {
           donation: value.donation,
           userID: user.attributes.sub,
           image: fileKey,
+          price: value.price,
         })
       );
 

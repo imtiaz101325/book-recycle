@@ -11,14 +11,13 @@ import { Book } from "./models";
 
 const HomeContainer = styled(Container)`
   min-height: calc(100vh - 4em);
-  position: relative;
   margin-top: 5rem;
 `;
 
 const AbsoluteFab = styled(Fab)`
-  position: absolute;
-  bottom: 3em;
-  right: 1em;
+  position: fixed;
+  right: calc((100vw - 1100px) / 2);
+  top: calc(100vh - 5rem);
 `;
 
 export default function Home() {
