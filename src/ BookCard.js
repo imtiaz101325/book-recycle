@@ -1,31 +1,8 @@
 
-import { Link } from "react-router-dom";
+import { IconButton, ImageListItem, ImageListItemBar } from "@mui/material";
+import InfoIcon from '@mui/icons-material/Info';
 
-
-export default function BookCard({ add, name, author }) {
-  if (add) {
-    return (
-      <Link to="/add-book">
-        {/* <Book
-        cover={
-          <img
-            alt="add book"
-            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
-          />
-        }
-        actions={[
-          <FileAddOutlined key="add" />
-        ]}
-      >
-        <Meta
-          title="Add New"
-          description="Add a new book to sell or donate"
-        />
-      </Book> */}
-      </Link>
-    );
-  }
-
+export default function BookCard({ name, author, key }) {
   return (
     // <Book
     //   cover={
@@ -45,6 +22,21 @@ export default function BookCard({ add, name, author }) {
     //     description={author}
     //   />
     // </Book>
-    <></>
+
+        <ImageListItem key={key}>
+          
+          <ImageListItemBar
+            title={name}
+            subtitle={author}
+            actionIcon={
+              <IconButton
+                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                aria-label={`info about ${name}`}
+              >
+                <InfoIcon />
+              </IconButton>
+            }
+          />
+        </ImageListItem>
   );
 }
