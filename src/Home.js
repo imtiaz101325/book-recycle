@@ -41,7 +41,6 @@ export default function Home() {
 
   return (
     <HomeContainer>
-      {route === "authenticated" && <BookCard add />}
       {books.map(({ id, name, author }) => (
         <BookCard key={id} name={name} author={author} />
       ))}
