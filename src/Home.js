@@ -45,9 +45,11 @@ export default function Home() {
       {books.map(({ id, name, author }) => (
         <BookCard key={id} name={name} author={author} />
       ))}
-      <AbsoluteFab color="primary" onClick={handleFabClick}>
-        <AddIcon />
-      </AbsoluteFab>
+      {route === "authenticated" && (
+        <AbsoluteFab color="primary" onClick={handleFabClick}>
+          <AddIcon />
+        </AbsoluteFab>
+      )}
     </HomeContainer>
   );
 }
