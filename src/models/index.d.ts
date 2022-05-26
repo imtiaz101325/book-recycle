@@ -31,9 +31,9 @@ export declare class Book {
   readonly name?: string | null;
   readonly author?: string | null;
   readonly donation?: boolean | null;
-  readonly recycle?: boolean | null;
   readonly userID: string;
   readonly image?: string | null;
+  readonly price?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Book, BookMetaData>);

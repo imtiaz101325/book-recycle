@@ -132,13 +132,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "recycle": {
-                    "name": "recycle",
-                    "isArray": false,
-                    "type": "Boolean",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "userID": {
                     "name": "userID",
                     "isArray": false,
@@ -150,6 +143,13 @@ export const schema = {
                     "name": "image",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "price": {
+                    "name": "price",
+                    "isArray": false,
+                    "type": "Int",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -207,5 +207,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "47b386ed2fb4192f38fd06fcbe9c19ad"
+    "version": "3bbd4aa1e3164a6673793d4a51e2f627"
 };

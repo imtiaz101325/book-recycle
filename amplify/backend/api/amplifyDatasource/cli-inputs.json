@@ -13,7 +13,7 @@
       }
     },
     "apiName": "amplifyDatasource",
-    "gqlSchemaPath": "/tmp/amplify-afa07262-c516-4193-87ef-974bb89663a3/amplify/backend/api/amplifyDatasource/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-c4b4da1a-62d0-4eeb-8020-478e0c7230d1/amplify/backend/api/amplifyDatasource/schema.graphql",
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
