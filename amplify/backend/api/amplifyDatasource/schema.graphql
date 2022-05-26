@@ -1,9 +1,3 @@
-type Image @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String
-  bookID: ID! @index(name: "byBook")
-}
-
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   firstName: String
@@ -21,6 +15,6 @@ type Book @model @auth(rules: [{allow: public}]) {
   donation: Boolean
   recycle: Boolean
   userID: ID! @index(name: "byUser")
-  images: [Image] @hasMany(indexName: "byBook", fields: ["id"])
+  image: String
 }
  
