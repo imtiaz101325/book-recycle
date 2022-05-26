@@ -2,7 +2,17 @@ import { useAuthenticator } from "@aws-amplify/ui-react";
 import { useEffect, useState } from "react";
 import { DataStore } from "aws-amplify";
 import { User } from "./models";
-import { Container, Paper } from "@mui/material";
+import { Container, Paper, styled, Typography } from "@mui/material";
+
+const ProfileContainer = styled(Container)`
+  padding: ${({ theme }) => theme.spacing(5)};
+`;
+
+const DetailsContainer = styled(Paper)`
+  padding: ${({ theme }) => theme.spacing(2)};
+  margin: ${({ theme }) => theme.spacing(10)};
+  text-align: center;
+`;
 
 export default function Profile() {
   const [userData, setUser] = useState({});
@@ -20,25 +30,15 @@ export default function Profile() {
   }, [user.attributes.sub]);
 
   return (
-    <Container>
-      <Paper>
-
-      </Paper>
-      {/* <Descriptions title="User Info">
-        <Descriptions.Item label="Username">
-          {userData.username}
-        </Descriptions.Item>
-        <Descriptions.Item label="First Name">
-          {userData.firstName}
-        </Descriptions.Item>
-        <Descriptions.Item label="Last Name">
-          {userData.lastName}
-        </Descriptions.Item>
-        <Descriptions.Item label="Telephone">
-          {userData.phone}
-        </Descriptions.Item>
-        <Descriptions.Item label="Email">{userData.email}</Descriptions.Item>
-      </Descriptions> */}
-    </Container>
+    <ProfileContainer>
+      <Typography variant="h3">Profile</Typography>
+      <DetailsContainer>
+        <Typography variant="h5">Username: {userData.username}</Typography>
+        <Typography variant="h5">First Name: {userData.firstName}</Typography>
+        <Typography variant="h5">Last Name: {userData.lastName}</Typography>
+        <Typography variant="h5">Email: {userData.email}</Typography>
+        <Typography variant="h5">Phone: {userData.phone}</Typography>
+      </DetailsContainer>
+    </ProfileContainer>
   );
 }
