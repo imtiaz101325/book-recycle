@@ -1,0 +1,15 @@
+{
+  "resourceName": "assets",
+  "policyUUID": "5b52e46f",
+  "bucketName": "bookrecyclecfec2eb49ca14c6a9f1954a6b9da2097",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "groupAccess": {}
+}
