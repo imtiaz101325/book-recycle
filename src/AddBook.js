@@ -52,6 +52,7 @@ export default function AddBook() {
           author: value.author,
           donation: value.donation,
           userID: user.attributes.sub,
+          image: fileKey,
         })
       );
 
@@ -62,7 +63,7 @@ export default function AddBook() {
   }
 
   function onSubmit(data) {
-    console.log(data);
+    handleChange(data);
   }
 
   async function handleImageUpload(event) {

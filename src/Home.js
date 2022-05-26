@@ -1,7 +1,7 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { useEffect, useState } from "react";
 import { useAuthenticator } from "@aws-amplify/ui-react";
-import { Container, Fab, styled } from "@mui/material";
+import { Container, Fab, ImageList, styled } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ import { Book } from "./models";
 const HomeContainer = styled(Container)`
   min-height: calc(100vh - 4em);
   position: relative;
+  margin-top: 5rem;
 `;
 
 const AbsoluteFab = styled(Fab)`
@@ -41,9 +42,11 @@ export default function Home() {
 
   return (
     <HomeContainer>
-      {books.map(({ id, name, author }) => (
-        <BookCard key={id} name={name} author={author} />
-      ))}
+      <ImageList>
+        {books.map(({ id, name, author, image }) => (
+          <BookCard key={id} name={name} author={author} image={image} />
+        ))}
+      </ImageList>
       {route === "authenticated" && (
         <AbsoluteFab color="primary" onClick={handleFabClick}>
           <AddIcon />

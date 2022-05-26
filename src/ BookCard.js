@@ -1,8 +1,9 @@
 
 import { IconButton, ImageListItem, ImageListItemBar } from "@mui/material";
 import InfoIcon from '@mui/icons-material/Info';
+import { AmplifyS3Image } from '@aws-amplify/ui-react/legacy';
 
-export default function BookCard({ name, author, key }) {
+export default function BookCard({ name, author, image, id }) {
   return (
     // <Book
     //   cover={
@@ -23,8 +24,8 @@ export default function BookCard({ name, author, key }) {
     //   />
     // </Book>
 
-        <ImageListItem key={key}>
-          
+        <ImageListItem key={id}>
+          <AmplifyS3Image imgKey={image} />
           <ImageListItemBar
             title={name}
             subtitle={author}
