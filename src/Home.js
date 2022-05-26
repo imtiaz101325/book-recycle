@@ -42,8 +42,8 @@ export default function Home() {
   return (
     <HomeContainer>
       <ImageList>
-        {books.map(({ id, name, author, image }) => (
-          <BookCard key={id} name={name} author={author} image={image} />
+        {books.map((book) => (
+          <BookCard data={book} />
         ))}
       </ImageList>
       {route === "authenticated" && (
