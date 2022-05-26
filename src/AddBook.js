@@ -32,6 +32,7 @@ export default function AddBook() {
   const [imageUploaded, setImageUploaded] = useState(false);
   const [filename, setFilename] = useState();
   const [imageUploading, setImageUploading] = useState(false);
+  const [fileKey, setFileKey] = useState();
 
   const { user } = useAuthenticator((context) => [context.user]);
   const navigate = useNavigate();
@@ -69,7 +70,11 @@ export default function AddBook() {
     try {
       setImageUploading(true);
       setFilename(file.name);
-      await Storage.put(file.name, file);
+      const upload = await Storage.put(
+        `${user.attributes.sub}-${Date.now()}-${file.name}`,
+        file
+      );
+      setFileKey(upload.key);
       setImageUploaded(true);
       setImageUploading(false);
     } catch (error) {

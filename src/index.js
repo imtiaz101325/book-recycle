@@ -6,14 +6,12 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import App from "./App";
 
-import Amplify, { Auth, Storage } from "aws-amplify";
+import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
 
 import "@aws-amplify/ui-react/styles.css";
 
 Amplify.configure(awsconfig);
-Auth.configure(awsconfig);
-Storage.configure(awsconfig)
 
 const theme = createTheme({
   palette: {
